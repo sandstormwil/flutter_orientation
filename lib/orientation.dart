@@ -20,7 +20,10 @@ class OrientationPlugin {
         _stringify(overlays),
       );
     } else {
-      SystemChrome.setEnabledSystemUIOverlays(overlays);
+      SystemChrome.setEnabledSystemUIMode(
+        SystemUiMode.manual,
+        overlays: overlays,
+      );
     }
   }
 
@@ -43,7 +46,9 @@ class OrientationPlugin {
 
   static List<String> _stringify(List<dynamic> list) {
     final List<String> result = <String>[];
-    for (dynamic item in list) result.add(item.toString());
+    for (dynamic item in list) {
+      result.add(item.toString());
+    }
     return result;
   }
 
